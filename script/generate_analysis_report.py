@@ -271,7 +271,7 @@ def generate_html_report(analysis_results: List[Dict[str, Any]], python_files: D
             <script>hljs.highlightAll();</script>
         </head>
         <body class="bg-gray-100" x-data="{{ activeModal: null }}">
-            <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">
+            <div class="min-h-screen py-6 flex flex-col justify-center sm:py-12">             
                 <div class="px-4 sm:px-6 lg:px-8">
                     <div class="mb-8 bg-white rounded-lg shadow p-6">
                         <h1 class="text-3xl font-bold text-gray-900 mb-4">Code Analysis Report</h1>

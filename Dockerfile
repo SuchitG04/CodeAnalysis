@@ -10,9 +10,8 @@ COPY requirements.txt .
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application
-COPY app.py .
-COPY analysis_results.html .
+# Copy all contents from the root directory
+COPY . .
 
 # Set environment variables
 ENV PORT=8080
