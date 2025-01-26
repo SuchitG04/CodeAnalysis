@@ -60,128 +60,106 @@ class PromptGenerator:
     def __init__(self):
         self.contexts = [
             {
-                "title": "Banking Security Context",
-                "description": """We are an online bank's security team evaluating customer data access and usage.
-                The system integrates multiple SaaS platforms (M365, Google Workspace, HubSpot, Salesforce) and internal microservices.
-                Each data source introduces compliance requirements and security approval flows."""
+                "title": "User Identity Management",
+                "description": """System handling user authentication, authorization, and profile management.
+                Manages user profiles, roles, and permissions across multiple services.
+                Implements OAuth2/JWT authentication with comprehensive audit logging."""
             },
             {
-                "title": "Data Integration Platform",
-                "description": """You're building a data integration platform that connects various enterprise systems.
-                The platform handles sensitive customer information and must comply with privacy regulations.
-                Different teams contribute to the codebase, leading to varying coding styles and practices."""
+                "title": "Healthcare Records Platform",
+                "description": """Healthcare platform managing patient records and EHR integration.
+                Handles sensitive patient data, medical history, and insurance claims.
+                Must maintain HIPAA compliance and secure data exchange with providers."""
             },
             {
-                "title": "Financial Data Processing",
-                "description": """This system processes financial transactions and customer data across multiple services.
-                It includes both internal APIs and third-party integrations.
-                Security and compliance are critical but implementation may vary."""
+                "title": "Financial Services Platform",
+                "description": """Financial platform processing payments, invoices, and transactions.
+                Manages payment methods, financial ledgers, and compliance data.
+                Implements KYC/AML checks and maintains detailed audit trails."""
             },
             {
-                "title": "Healthcare Data Exchange",
-                "description": """A healthcare provider's system that exchanges patient data between different departments and external labs.
-                Must handle HIPAA compliance requirements and secure PHI (Protected Health Information).
-                Includes integration with Electronic Health Record (EHR) systems and insurance providers."""
+                "title": "Organization Management",
+                "description": """System for managing organization profiles and subscriptions.
+                Handles company information, billing details, and subscription plans.
+                Tracks API usage, enforces limits, and manages organization hierarchies."""
             },
             {
-                "title": "E-commerce Platform",
-                "description": """Multi-vendor e-commerce platform handling customer data, payment processing, and inventory management.
-                Integrates with multiple payment gateways, shipping providers, and vendor systems.
-                Must comply with PCI-DSS for payment data and GDPR for customer information."""
-            },
-            {
-                "title": "IoT Device Management",
-                "description": """System managing a network of IoT devices in smart buildings.
-                Collects and processes sensor data, manages device credentials, and handles firmware updates.
-                Security concerns include device authentication and sensitive data transmission."""
-            },
-            {
-                "title": "Educational Platform",
-                "description": """Learning management system handling student data, course materials, and assessment results.
-                Integrates with various educational tools and content providers.
-                Must comply with FERPA regulations and protect student privacy."""
-            },
-            {
-                "title": "Government Data Portal",
-                "description": """Government agency system managing citizen data and service requests.
-                Interfaces with multiple department databases and external verification services.
-                Strict security requirements and audit logging for all data access."""
+                "title": "Analytics and Reporting",
+                "description": """Platform for collecting and analyzing system-wide metrics.
+                Tracks user activities, system performance, and error events.
+                Generates reports on usage patterns and system health."""
             }
         ]
 
         self.data_flows = [
-            "Data flows from SaaS platforms to internal databases",
-            "Information is shared with third-party systems for specialized processing",
-            "Customer data moves between microservices and external APIs",
-            "Files are processed and uploaded to cloud storage",
-            "Data is extracted, transformed, and loaded across systems",
-            "Real-time data streaming between services with event processing",
-            "Batch processing of historical data with compliance checks",
-            "Multi-stage data pipeline with validation and enrichment",
-            "Bidirectional sync between internal and external systems",
-            "Data aggregation from multiple sources with transformation rules"
+            "User authentication and authorization flows",
+            "Patient data exchange between healthcare providers",
+            "Financial transaction processing and reconciliation",
+            "Organization profile updates and subscription changes",
+            "Real-time event logging and metric collection",
+            "Cross-system data synchronization with audit trails",
+            "Compliance data collection and reporting",
+            "Analytics data aggregation and processing"
         ]
 
         self.security_aspects = [
-            "Incomplete identity verification checks",
-            "Partial compliance policy implementations (GDPR, internal rules)",
-            "Inconsistent audit logging",
-            "Mixed credential management practices",
-            "Varying levels of error handling",
-            "Token-based authentication with expiration handling",
-            "Role-based access control implementation",
-            "API key rotation and management",
+            "Multi-factor authentication implementation",
+            "Role-based access control (RBAC)",
+            "OAuth2/JWT token management",
+            "Session handling and timeout policies",
+            "Audit logging of sensitive operations",
+            "HIPAA-compliant data access controls",
+            "PCI-DSS compliant payment processing",
             "Data encryption in transit and at rest",
-            "Rate limiting and request throttling",
-            "Input validation and sanitization",
-            "Session management and timeout handling"
+            "API rate limiting and quota enforcement",
+            "IP-based access restrictions",
+            "Password policy enforcement",
+            "Security event monitoring and alerts"
         ]
 
         self.data_sources = [
-            "SaaS Platforms (M365, Google Workspace, HubSpot, Salesforce)",
-            "Databases (MySQL, PostgreSQL, MongoDB, Redis)",
-            "Data Warehouses (Snowflake, BigQuery)",
-            "Local Files (CSV, JSON, XML)",
-            "Internal/External APIs",
-            "Message Queues (RabbitMQ, Kafka)",
-            "Cloud Storage (S3, GCS, Azure Blob)",
-            "Cache Systems (Redis, Memcached)",
-            "Time Series Databases (InfluxDB, TimescaleDB)",
-            "Graph Databases (Neo4j, Amazon Neptune)",
-            "Search Engines (Elasticsearch, Solr)",
-            "Blockchain Networks (Ethereum, Hyperledger)"
+            "User Profile Database (name, contact, roles)",
+            "Authentication Service (tokens, sessions)",
+            "Patient Records System (EHR data, appointments)",
+            "Insurance Claims Database",
+            "Payment Processing System",
+            "Financial Ledger Database",
+            "Organization Profile Store",
+            "Subscription Management System",
+            "Event Logging Service",
+            "Performance Metrics Store",
+            "Compliance Data Warehouse",
+            "Analytics Processing Pipeline"
         ]
 
         self.code_quality_variations = [
-            "Well-documented functions mixed with unclear ones",
-            "Inconsistent error handling approaches",
-            "Mix of secure and insecure credential management",
-            "Varying levels of code organization",
-            "Random TODOs and FIXMEs",
-            "Different logging styles and verbosity levels",
-            "Mixture of synchronous and asynchronous code",
-            "Inconsistent parameter validation",
-            "Variable naming convention differences",
-            "Mixed use of OOP and functional programming",
-            "Varying levels of code modularization",
-            "Different approaches to configuration management"
+            "Varying levels of input validation",
+            "Inconsistent error handling and logging",
+            "Mixed authentication implementation patterns",
+            "Different approaches to data sanitization",
+            "Variable levels of HIPAA compliance checks",
+            "Inconsistent PCI-DSS implementation",
+            "Mixed audit logging practices",
+            "Different approaches to data encryption",
+            "Varying levels of access control implementation",
+            "Inconsistent API security practices",
+            "Mixed error reporting standards",
+            "Different monitoring implementation patterns"
         ]
 
         self.compliance_elements = [
-            "Third-party approval checks",
-            "Compliance officer approval flags",
-            "Identity and role verification",
-            "Data access logging",
-            "Policy reference implementations",
-            "Data retention policy enforcement",
-            "Personal data anonymization",
-            "Consent management implementation",
+            "HIPAA privacy rule implementation",
+            "PCI-DSS payment data handling",
+            "GDPR data subject rights",
+            "KYC/AML verification checks",
             "Audit trail generation",
-            "Data classification handling",
-            "Cross-border data transfer checks",
-            "Privacy impact assessment references",
-            "Data subject rights handling",
-            "Breach notification procedures"
+            "Data retention policies",
+            "Access control logging",
+            "Security incident reporting",
+            "Data breach notification",
+            "Consent management",
+            "Privacy impact assessments",
+            "Compliance reporting procedures"
         ]
 
         self.architecture_patterns = [
@@ -755,6 +733,9 @@ def generate_sample_scripts() -> None:
     # Analyze existing files to determine script type distribution
     distribution = ScriptTypeDistribution(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'generated'))
     
+    # Get current date for filename
+    current_date = datetime.now().strftime("%Y_%m_%d")
+    
     for i in range(num_scripts):
         try:
             # Generate prompt using the new generator
@@ -764,7 +745,7 @@ def generate_sample_scripts() -> None:
             request = CodeGenerationRequest(
                 description=prompt,
                 template_name=random.choice(["script", "class"]),
-                output_file=f"generated/{distribution.get_weighted_script_type()}_{generate_short_uuid()}.py",
+                output_file=f"generated/{current_date}_{distribution.get_weighted_script_type()}_{generate_short_uuid()}.py",
                 additional_context=get_random_context()
             )
             script_content = generator.generate_code(request)
