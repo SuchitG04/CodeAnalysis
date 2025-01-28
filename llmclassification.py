@@ -222,19 +222,45 @@ Consistency in Naming Conventions: Maintain consistent naming conventions throug
         return None
 
 def main():
-    # Get API key from environment variable
+    """
+    Main function to analyze a Python file using Fireworks API.
+    Can be used either with command line arguments or by importing and calling directly.
+    """
+    import argparse
+    from pathlib import Path
+
+    parser = argparse.ArgumentParser(description='Analyze a Python file using Fireworks API')
+    parser.add_argument('--file', '-f', type=str, help='Path to the Python file to analyze')
+    parser.add_argument('--random', '-r', action='store_true', help='Analyze a random file from the generated directory')
+    args = parser.parse_args()
+
+    # Get API key
     api_key = "fw_3ZnkM3DDfxYG6e5W5c6mempB"
-    # Path to the generated directory
-    generated_dir = Path('/Users/harshsinghal/workspace/armor1/generated')
-    
-    # Get list of Python files and choose one randomly
-    python_files = list(generated_dir.glob('*.py'))
-    if not python_files:
-        print("No Python files found in the generated directory")
+
+    if args.file:
+        # Use the specified file
+        file_path = Path(args.file)
+        if not file_path.exists():
+            print(f"Error: File {file_path} does not exist")
+            return
+        if not file_path.suffix == '.py':
+            print(f"Error: File {file_path} is not a Python file")
+            return
+    elif args.random:
+        # Use random file from generated directory (original behavior)
+        generated_dir = Path('/Users/harshsinghal/workspace/armor1/generated')
+        python_files = list(generated_dir.glob('*.py'))
+        if not python_files:
+            print("No Python files found in the generated directory")
+            return
+        file_path = random.choice(python_files)
+    else:
+        parser.print_help()
         return
-        
-    random_file = random.choice(python_files)
-    analyze_code_with_fireworks(str(random_file), api_key)
+
+    # Analyze the file
+    result = analyze_code_with_fireworks(str(file_path), api_key)
+    return result
 
 if __name__ == '__main__':
     main()
