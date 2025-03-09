@@ -91,6 +91,94 @@ class PromptGenerator:
             }
         ]
 
+        # Add React-specific contexts
+        self.react_contexts = [
+            {
+                "title": "Dashboard Components",
+                "description": """React dashboard components for data visualization and management.
+                Includes interactive charts, tables, and filtering mechanisms.
+                Implements real-time updates and responsive layouts."""
+            },
+            {
+                "title": "Form Components",
+                "description": """React form components with validation and state management.
+                Handles complex form logic, field dependencies, and error states.
+                Implements accessibility features and custom input controls."""
+            },
+            {
+                "title": "Authentication Components",
+                "description": """React authentication components and protected routes.
+                Manages user sessions, role-based access, and auth state.
+                Implements social login and multi-factor authentication UI."""
+            },
+            {
+                "title": "Data Grid Components",
+                "description": """React data grid components for large dataset handling.
+                Implements sorting, filtering, and pagination features.
+                Handles row selection, inline editing, and export functionality."""
+            },
+            {
+                "title": "Navigation Components",
+                "description": """React navigation components and routing system.
+                Implements responsive navigation patterns and breadcrumbs.
+                Handles deep linking and route-based code splitting."""
+            }
+        ]
+
+        # React patterns
+        self.react_patterns = [
+            "Custom Hooks Pattern",
+            "Context Provider Pattern",
+            "Container/Presenter Pattern",
+            "Controlled Components",
+            "Error Boundary Pattern"
+        ]
+
+        # React hooks patterns
+        self.react_hooks = [
+            "State Management Hook",
+            "Side Effect Hook",
+            "Context Consumer Hook",
+            "Data Fetching Hook",
+            "Form Validation Hook"
+        ]
+
+        # React service patterns
+        self.react_services = [
+            "API Service",
+            "Authentication Service", 
+            "State Management Service",
+            "Storage Service",
+            "Error Handling Service"
+        ]
+
+        # React context patterns
+        self.react_tsx_contexts = [
+            "Theme Context",
+            "Authentication Context",
+            "Localization Context", 
+            "User Preferences Context",
+            "Application State Context"
+        ]
+
+        # TypeScript patterns
+        self.typescript_patterns = [
+            "Generic Components",
+            "Type Guards",
+            "Utility Types",
+            "Mapped Types",
+            "Conditional Types"
+        ]
+
+        # React quality variations
+        self.react_quality_variations = [
+            "Varying levels of prop type definitions",
+            "Mixed use of functional and class components",
+            "Different styling methodologies",
+            "Varying levels of accessibility implementation",
+            "Inconsistent performance optimization"
+        ]
+
         self.data_flows = [
             "User authentication and authorization flows",
             "Patient data exchange between healthcare providers",
@@ -184,9 +272,204 @@ class PromptGenerator:
             "Concurrent access conflicts"
         ]
 
+        # TypeScript utility types
+        self.typescript_utilities = [
+            """type Nullable<T> = T | null;""",
+            """type Optional<T> = T | undefined;""",
+            """type AsyncResponse<T> = {
+    data: T;
+    loading: boolean;
+    error: Error | null;
+};""",
+            """type ValidationResult<T> = {
+    isValid: boolean;
+    data?: T;
+    errors?: Record<keyof T, string[]>;
+};"""
+        ]
+
+        # TypeScript interfaces
+        self.typescript_interfaces = [
+            """interface BaseProps {
+    className?: string;
+    style?: React.CSSProperties;
+    children?: React.ReactNode;
+}""",
+            """interface ApiResponse<T> {
+    data: T;
+    status: number;
+    message: string;
+}""",
+            """interface PaginatedResponse<T> {
+    items: T[];
+    total: number;
+    page: number;
+    pageSize: number;
+}"""
+        ]
+
+        # React prop interfaces
+        self.react_prop_interfaces = [
+            """interface TableProps<T> {
+    data: T[];
+    columns: ColumnDefinition<T>[];
+    loading?: boolean;
+    onSort?: (column: keyof T) => void;
+    onRowClick?: (row: T) => void;
+}""",
+            """interface FormProps<T> {
+    initialValues: T;
+    onSubmit: (values: T) => void | Promise<void>;
+    children: React.ReactNode;
+    disabled?: boolean;
+}""",
+            """interface ButtonProps extends BaseProps {
+    variant?: 'primary' | 'secondary' | 'outline';
+    size?: 'sm' | 'md' | 'lg';
+    disabled?: boolean;
+    onClick?: () => void;
+}"""
+        ]
+
+        # Add data sink patterns
+        self.data_sink_patterns = [
+            {
+                "type": "database",
+                "operations": [
+                    "Batch insert operations",
+                    "Upsert with conflict resolution",
+                    "Soft delete with audit trail",
+                    "Transaction with rollback",
+                    "Bulk update with validation",
+                    "Archive old records",
+                    "Write with retry mechanism",
+                    "Multi-table transaction"
+                ],
+                "technologies": [
+                    "PostgreSQL with pg-promise",
+                    "MongoDB with mongoose",
+                    "MySQL with typeorm",
+                    "Redis with ioredis",
+                    "DynamoDB with aws-sdk",
+                    "Cassandra with datastax",
+                    "SQLite with better-sqlite3",
+                    "Firebase Realtime Database"
+                ]
+            },
+            {
+                "type": "file_system",
+                "operations": [
+                    "Stream large file writes",
+                    "Concurrent file operations",
+                    "Atomic file updates",
+                    "CSV/Excel export",
+                    "JSON data persistence",
+                    "Log file rotation",
+                    "Temporary file cleanup",
+                    "Binary file handling"
+                ],
+                "technologies": [
+                    "fs-extra",
+                    "node-stream",
+                    "csv-writer",
+                    "xlsx",
+                    "sharp for images",
+                    "multer for uploads",
+                    "archiver for compression",
+                    "fast-csv"
+                ]
+            },
+            {
+                "type": "external_api",
+                "operations": [
+                    "Batch API requests",
+                    "Webhook delivery",
+                    "Event notification",
+                    "Data synchronization",
+                    "Status update push",
+                    "Bulk operation",
+                    "Real-time update",
+                    "Cross-service transaction"
+                ],
+                "technologies": [
+                    "REST with axios",
+                    "GraphQL mutations",
+                    "gRPC streams",
+                    "WebSocket push",
+                    "Message queue publish",
+                    "Webhook dispatch",
+                    "Server-sent events",
+                    "MQTT publish"
+                ]
+            },
+            {
+                "type": "client_server",
+                "operations": [
+                    "Form submission handling",
+                    "File upload processing",
+                    "Real-time data update",
+                    "Bulk action request",
+                    "Authentication flow",
+                    "Session management",
+                    "State synchronization",
+                    "Progress tracking"
+                ],
+                "technologies": [
+                    "Express middleware",
+                    "Next.js API routes",
+                    "Socket.io events",
+                    "REST endpoints",
+                    "GraphQL resolvers",
+                    "tRPC mutations",
+                    "FastAPI endpoints",
+                    "WebSocket handlers"
+                ]
+            }
+        ]
+
+        # Add error handling for data sinks
+        self.data_sink_errors = [
+            "Connection timeout handling",
+            "Deadlock resolution",
+            "Partial failure recovery",
+            "Data validation error",
+            "Constraint violation",
+            "Network partition",
+            "Resource exhaustion",
+            "Concurrent write conflict",
+            "Storage capacity limit",
+            "Rate limit exceeded",
+            "Authentication failure",
+            "Permission denied"
+        ]
+
+        # Add data sink quality variations
+        self.data_sink_quality_variations = [
+            "Variable retry strategies",
+            "Inconsistent error logging",
+            "Mixed transaction patterns",
+            "Different rollback approaches",
+            "Varying cleanup procedures",
+            "Mixed validation strictness",
+            "Different concurrency handling",
+            "Varying backup procedures"
+        ]
+
     def generate_prompt(self) -> str:
         """Generate a random prompt for code generation."""
         context = random.choice(self.contexts)
+        selected_sinks = []
+        for sink_type in self.data_sink_patterns:
+            if random.random() > 0.5:  # 50% chance to include each sink type
+                operations = random.sample(sink_type["operations"], random.randint(1, 2))
+                tech = random.sample(sink_type["technologies"], 1)[0]
+                selected_sinks.append({
+                    "type": sink_type["type"],
+                    "operations": operations,
+                    "technology": tech
+                })
+        
+        # Select other random elements
         num_data_sources = random.randint(2, 4)
         num_security_aspects = random.randint(2, 3)
         num_compliance_elements = random.randint(1, 3)
@@ -200,8 +483,9 @@ class PromptGenerator:
         selected_errors = random.sample(self.error_scenarios, num_error_scenarios)
         data_flow = random.choice(self.data_flows)
         code_quality = random.sample(self.code_quality_variations, 2)
+        sink_quality = random.sample(self.data_sink_quality_variations, 1)[0]
 
-        prompt = f"""Generate a Python script that demonstrates data handling in a security-sensitive environment.
+        prompt = f"""Generate a TypeScript file that's part of a larger project that demonstrates data handling in a security-sensitive environment.
 
 Context:
 {context['description']}
@@ -213,129 +497,132 @@ Requirements:
 - Must involve these data sources: {', '.join(selected_data_sources)}
 - Implement these architectural patterns: {', '.join(selected_patterns)}
 
-2. Security & Compliance:
+2. Data Sink Operations:
+{chr(10).join(f'- {sink["type"].title()}: Implement {", ".join(sink["operations"])} using {sink["technology"]}' for sink in selected_sinks)}
+
+3. Security & Compliance:
 - Implement these security aspects: {', '.join(selected_security)}
 - Include these compliance elements: {', '.join(selected_compliance)}
 - Handle these error scenarios: {', '.join(selected_errors)}
 
-3. Code Quality:
+4. Code Quality:
 - {code_quality[0]}
 - {code_quality[1]}
+- Data sink quality variation: {sink_quality}
 
-4. Structure:
+5. Structure:
 - Create a main class or function that orchestrates the data flow
 - Include appropriate imports (can be stubbed)
 - Add relevant error handling (can be inconsistent)
 - Include some form of logging or monitoring
 
-5. Output:
-- Provide the complete Python code
-- Include docstrings (can be of varying quality)
+6. Output:
+- Provide the complete TypeScript code
+- Include TSDoc comments (can be of varying quality)
 - Add comments explaining key parts of the implementation
 
 The code should be runnable (with stubbed external dependencies) and demonstrate realistic but imperfect security practices.
 """
         return prompt
 
-class PromptTemplate:
-    """Manages prompt templates for different types of code generation."""
+    def generate_react_prompt(self, component_type: str = "component") -> str:
+        """Generate a random prompt for React TypeScript code generation."""
+        context = random.choice(self.react_contexts if component_type == "component" else self.contexts)
+        
+        # Select random utility types and interfaces
+        num_utilities = random.randint(1, 2)
+        num_interfaces = random.randint(1, 2)
+        selected_utilities = random.sample(self.typescript_utilities, num_utilities)
+        selected_interfaces = random.sample(
+            self.typescript_interfaces + self.react_prop_interfaces 
+            if component_type == "component" 
+            else self.typescript_interfaces,
+            num_interfaces
+        )
+        
+        if component_type == "component":
+            patterns = random.sample(self.react_patterns, random.randint(1, 3))
+            quality_vars = random.sample(self.react_quality_variations, random.randint(1, 2))
+            typescript_patterns = random.sample(self.typescript_patterns, random.randint(1, 2))
+        elif component_type == "hook":
+            patterns = random.sample(self.react_hooks, random.randint(1, 2))
+            quality_vars = random.sample(self.react_quality_variations, random.randint(1, 2))
+            typescript_patterns = random.sample(self.typescript_patterns, random.randint(1, 2))
+        elif component_type == "context":
+            patterns = random.sample(self.react_tsx_contexts, random.randint(1, 2))
+            quality_vars = random.sample(self.react_quality_variations, random.randint(1, 2))
+            typescript_patterns = random.sample(self.typescript_patterns, random.randint(1, 2))
+        else:  # service
+            patterns = random.sample(self.react_services, random.randint(1, 2))
+            quality_vars = random.sample(self.code_quality_variations, random.randint(1, 2))
+            typescript_patterns = random.sample(self.typescript_patterns, random.randint(1, 2))
 
-    @staticmethod
-    def get_python_script_template() -> str:
-        """Template for generating Python scripts with varying code quality."""
-        return """
-        Create a Python script that simulates real-world code quality and practices. The code should feel authentic, as if written by different developers with varying experience levels and coding habits.
+        prompt = f"""Generate a TypeScript React {component_type} that implements the following functionality.
 
-        Description:
-        {description}
+Context:
+{context['description']}
 
-        Code Style Requirements (randomly vary these aspects):
-        1. Documentation:
-           - Some functions might have detailed docstrings
-           - Others might have no documentation at all
-           - Mix of helpful and unclear/outdated comments
-           - Some TODOs or FIXMEs that were never addressed
+Requirements:
 
-        2. Variable Naming:
-           - Mix of well-named and poorly named variables (e.g., 'x', 'temp', 'data', etc.)
-           - Inconsistent naming conventions (camelCase, snake_case, etc.)
-           - Some meaningless or confusing abbreviations
+1. Implementation Patterns:
+- Use these React patterns: {', '.join(patterns)}
+- Implement these TypeScript patterns: {', '.join(typescript_patterns)}
 
-        3. Error Handling:
-           - Some places with proper try-except blocks
-           - Other places with bare except clauses
-           - Mix of detailed and generic error messages
-           - Some error cases completely unhandled
+2. Type Definitions:
+Implement and use these utility types and interfaces:
 
-        4. Code Organization:
-           - Varying levels of code organization
-           - Some functions might be too long
-           - Possible duplicate code
-           - Mix of clear and confusing logic flows
+{chr(10).join(selected_utilities)}
 
-        5. Real-world Data Handling:
-           - Include realistic data sources (files, APIs, databases)
-           - Mix of proper and improper resource cleanup
-           - Various data formats (JSON, CSV, XML, etc.)
-           - Some hardcoded values and credentials
-           - Occasional debug print statements left in code
+{chr(10).join(selected_interfaces)}
 
-        Additional Context:
-        {additional_context}
+3. Code Quality:
+- {quality_vars[0]}
+- {quality_vars[1] if len(quality_vars) > 1 else 'Include comprehensive error handling'}
 
-        Remember: The goal is to simulate real-world code that might be found in production systems, including both good and bad practices. The code should work but reflect the reality of how software is often written in practice.
-        """
+4. Structure:
+- Create a well-organized {component_type} with proper TypeScript types
+- Include necessary imports and dependencies
+- Add appropriate error handling and loading states
+- Implement proper cleanup and resource management
 
-    @staticmethod
-    def get_class_template() -> str:
-        """Template for generating Python classes with varying implementation quality."""
-        return """
-        Create a Python class that reflects real-world implementation patterns and anti-patterns. The code should feel like it was written and maintained by multiple developers over time.
+5. Documentation:
+- Include TSDoc comments for the {component_type} and its interfaces
+- Add inline comments for complex logic
+- Include usage examples in the documentation
 
-        Description:
-        {description}
+The code should be production-ready and follow React + TypeScript best practices while maintaining realistic quality variations.
+"""
 
-        Implementation Requirements (mix these aspects):
-        1. Class Structure:
-           - Some methods might be well-organized
-           - Others might be too long or do too many things
-           - Mix of instance and class variables
-           - Possible unused attributes
-           - Some commented-out code
+        # Add data sink requirements for services
+        if component_type == "service":
+            # Select random data sinks
+            selected_sinks = []
+            for sink_type in self.data_sink_patterns:
+                if random.random() > 0.5:  # 50% chance to include each sink type
+                    operations = random.sample(sink_type["operations"], random.randint(1, 2))
+                    tech = random.sample(sink_type["technologies"], 1)[0]
+                    selected_sinks.append({
+                        "type": sink_type["type"],
+                        "operations": operations,
+                        "technology": tech
+                    })
+            
+            # Select random error handling
+            selected_errors = random.sample(self.data_sink_errors, random.randint(2, 3))
+            
+            # Add data sink requirements to prompt
+            if selected_sinks:
+                prompt += f"""
+6. Data Sink Operations:
+{chr(10).join(f'- {sink["type"].title()}: Implement {", ".join(sink["operations"])} using {sink["technology"]}' for sink in selected_sinks)}
 
-        2. Data Handling:
-           - Various data sources and sinks:
-             * Database connections (MySQL, PostgreSQL, SQLite)
-             * File operations (reading/writing different formats)
-             * API calls (REST, GraphQL, SOAP)
-             * Cache systems (Redis, Memcached)
-           - Mix of synchronous and asynchronous operations
-           - Some race conditions or thread safety issues
-           - Occasional memory leaks
+7. Error Handling:
+Handle these error scenarios:
+{chr(10).join(f'- {error}' for error in selected_errors)}
+"""
 
-        3. Security Practices:
-           - Mix of proper and improper credential handling
-           - Some hardcoded secrets
-           - Varying levels of input validation
-           - Mix of secure and insecure defaults
+        return prompt
 
-        4. Dependencies:
-           - Mix of explicit and implicit dependencies
-           - Some version-specific code
-           - Occasional use of deprecated functions
-           - Mix of standard library and external packages
-
-        5. Real-world Complexity:
-           - Business logic mixed with technical implementation
-           - Some technical debt indicators
-           - Legacy code patterns
-           - Workarounds for external system limitations
-
-        Additional Context:
-        {additional_context}
-
-        Note: Create code that reflects real-world development practices, including both patterns and anti-patterns. The implementation should work but include common issues found in production code.
-        """
 
 class CodeGenerator:
     """Handles interaction with Fireworks AI API for code generation."""
@@ -367,47 +654,26 @@ class CodeGenerator:
             "Authorization": f"Bearer {self.api_key}"
         }
 
-    def _prepare_prompt(self, request: CodeGenerationRequest) -> str:
-        """Prepare the prompt based on the request and template."""
-        template = PromptTemplate.get_python_script_template()
-        if request.template_name == "class":
-            template = PromptTemplate.get_class_template()
-
-        additional_context = json.dumps(request.additional_context) if request.additional_context else "None"
-        return template.format(
-            description=request.description,
-            additional_context=additional_context
-        )
-
-    def _extract_python_code(self, content: str) -> str:
-        """Extract Python code from markdown response."""
-        # Look for Python code blocks
-        import re
+    def _extract_code(self, content: str) -> str:
+        """Extract code from markdown response."""
+        # Look for language-specific code blocks
+        patterns = [r'```typescript\n(.*?)```', r'```tsx\n(.*?)```', r'```ts\n(.*?)```', r'```\n(.*?)```']
         
-        # Try to find code block with ```python
-        pattern = r'```python\n(.*?)```'
-        matches = re.findall(pattern, content, re.DOTALL)
-        
-        if matches:
-            # Return the first Python code block found
-            return matches[0].strip()
-        
-        # If no ```python block found, try just ``` blocks
-        pattern = r'```\n(.*?)```'
-        matches = re.findall(pattern, content, re.DOTALL)
-        
-        if matches:
-            # Return the first code block found
-            return matches[0].strip()
+        # Try each pattern for the specified language
+        for pattern in patterns:
+            matches = re.findall(pattern, content, re.DOTALL)
+            if matches:
+                # Return the first code block found
+                return matches[0].strip()
             
         # If no code blocks found, return the original content
-        # (assuming it's raw Python code)
         return content.strip()
 
     def generate_code(self, request: CodeGenerationRequest) -> Optional[str]:
         """Generate code using Fireworks AI API."""
         try:
             print(f"\n Preparing prompt for: {request.output_file}")
+            
             prompt = request.description
             
             # Print the formatted prompt
@@ -417,7 +683,7 @@ class CodeGenerator:
             selected_model = random.choice(self.MODELS)
             print(f" Using model: {selected_model}")
             
-            print(f" Sending request to Fireworks AI API...")
+            print(" Sending request to Fireworks AI API...")
             payload = {
                 "model": selected_model,
                 "max_tokens": 20480,
@@ -445,8 +711,8 @@ class CodeGenerator:
             result = response.json()
             raw_content = result['choices'][0]['message']['content']
             
-            # Extract only the Python code from the response
-            generated_code = self._extract_python_code(raw_content)
+            # Extract code using the appropriate language
+            generated_code = self._extract_code(raw_content)
             
             # Save to file if output_file is specified
             if request.output_file:
@@ -561,14 +827,18 @@ class ScriptTypeDistribution:
     
     # Target percentages for each script type
     TARGET_DISTRIBUTION = {
-        "data_processor": 0.15,
-        "api_client": 0.15,
-        "auth_handler": 0.10,
-        "data_model": 0.15,
-        "task_processor": 0.10,
-        "cache_manager": 0.10,
-        "config_handler": 0.10,
-        "log_processor": 0.15
+        "data_processor": 0.10,
+        "api_client": 0.10,
+        "auth_handler": 0.05,
+        "data_model": 0.10,
+        "task_processor": 0.05,
+        "cache_manager": 0.05,
+        "config_handler": 0.05,
+        "log_processor": 0.10,
+        "react_component": 0.15,
+        "react_hook": 0.10,
+        "react_service": 0.10,
+        "react_context": 0.05,
     }
     
     def __init__(self, generated_dir: str):
@@ -590,7 +860,11 @@ class ScriptTypeDistribution:
             'task': 'task_processor',
             'log': 'log_processor',
             'db': 'data_processor',
-            'payment': 'task_processor'
+            'payment': 'task_processor',
+            'component': 'react_component',
+            'hook': 'react_hook',
+            'service': 'react_service',
+            'context': 'react_context',
         }
         
         try:
@@ -603,10 +877,10 @@ class ScriptTypeDistribution:
             logger.info(f"Found {len(files)} files in directory")
             
             for filename in files:
-                if filename.endswith('.py'):
+                if filename.endswith(('.ts', '.tsx')):
                     # Handle both formats: "type.py" and "type_uuid.py"
-                    base_name = filename.rsplit('.', 1)[0]  # Remove .py extension
-                    short_type = base_name.split('_')[0]  # Get type before underscore or whole name if no underscore
+                    base_name = filename.rsplit('.', 1)[0]  # Remove extension
+                    short_type = base_name.split('_')[0]  # Get type before underscore
                     
                     # Map the short type to full type
                     script_type = type_mapping.get(short_type)
@@ -694,10 +968,10 @@ def test_distribution_counting():
         files = os.listdir(generated_dir)
         print(f"\nFound {len(files)} total files")
         
-        # Count Python files and their types
-        py_files = [f for f in files if f.endswith('.py')]
-        print(f"\nPython files ({len(py_files)}):")
-        for filename in sorted(py_files):
+        # Count files and their types
+        ts_files = [f for f in files if f.endswith(('.ts', '.tsx'))]
+        print(f"\nTypeScript/TSX files ({len(ts_files)}):")
+        for filename in sorted(ts_files):
             base_name = filename.rsplit('.', 1)[0]
             script_type = base_name.split('_')[0]
             if script_type == "db":
@@ -723,12 +997,12 @@ def test_distribution_counting():
         print(traceback.format_exc())
 
 def generate_sample_scripts() -> None:
-    """Generate different Python scripts using various templates."""
+    """Generate different React/TypeScript and TypeScript scripts using various templates."""
     generator = CodeGenerator()
     prompt_generator = PromptGenerator()
     
     print("\n🚀 Starting script generation process...")
-    num_scripts = random.randint(15, 25)  # Random number of scripts to generate
+    num_scripts = random.randint(25, 30)  # Random number of scripts to generate
     
     # Analyze existing files to determine script type distribution
     distribution = ScriptTypeDistribution(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'generated'))
@@ -736,26 +1010,56 @@ def generate_sample_scripts() -> None:
     # Get current date for filename
     current_date = datetime.now().strftime("%Y_%m_%d")
     
+    # Define file types and their extensions
+    file_types = {
+        "data_processor": ".ts",
+        "api_client": ".ts",
+        "auth_handler": ".ts",
+        "data_model": ".ts",
+        "task_processor": ".ts",
+        "cache_manager": ".ts",
+        "config_handler": ".ts",
+        "log_processor": ".ts",
+        "react_component": ".tsx",
+        "react_hook": ".ts",
+        "react_service": ".ts",
+        "react_context": ".tsx",
+    }
+    
     for i in range(num_scripts):
         try:
-            # Generate prompt using the new generator
-            prompt = prompt_generator.generate_prompt()
+            # Get a weighted script type based on current distribution
+            script_type = distribution.get_weighted_script_type()
+            
+            # Determine if it's a React/TypeScript file
+            is_react = script_type.startswith("react_")
+            
+            # Generate appropriate prompt
+            if is_react:
+                component_type = script_type.replace("react_", "")
+                prompt = prompt_generator.generate_react_prompt(component_type)
+            else:
+                prompt = prompt_generator.generate_prompt()
+            
+            # Get the appropriate file extension
+            file_extension = file_types.get(script_type, ".ts")
             
             # Generate the script
             request = CodeGenerationRequest(
                 description=prompt,
-                template_name=random.choice(["script", "class"]),
-                output_file=f"generated/{current_date}_{distribution.get_weighted_script_type()}_{generate_short_uuid()}.py",
+                template_name="class" if "service" in script_type else None,
+                output_file=f"generated/{current_date}_{script_type}_{generate_short_uuid()}{file_extension}",
                 additional_context=get_random_context()
             )
+            
             script_content = generator.generate_code(request)
             if not script_content:
                 continue
             
-            print(f"✅ Generated script {i+1}/{num_scripts}: {request.output_file}")
+            print(f"✅ Generated {script_type} {i+1}/{num_scripts}: {request.output_file}")
             
             # Update the distribution
-            distribution.current_distribution[distribution.get_weighted_script_type()] += 1
+            distribution.current_distribution[script_type] += 1
             
         except Exception as e:
             print(f"❌ Error generating script {i+1}: {str(e)}")
@@ -763,12 +1067,16 @@ def generate_sample_scripts() -> None:
     
     print("\n📊 Final distribution of generated scripts:")
     for script_type, count in sorted(distribution.current_distribution.items()):
-        print(f"  {script_type}: {count}")
+        print(f"  {script_type} ({file_types[script_type]}): {count}")
     
     print("\n🎉 Script generation completed!")
     print(f"📊 Summary:")
     print(f"   - Total scripts: {sum(distribution.current_distribution.values())}")
-    print(f"   - Location: {os.path.abspath('generated')}\n")
+    print(f"   - Location: {os.path.abspath('generated')}")
+    print("   - File types generated:")
+    for ext in set(file_types.values()):
+        count = sum(1 for t, c in distribution.current_distribution.items() if file_types[t] == ext and c > 0)
+        print(f"     * {ext}: {count} files")
 
 if __name__ == "__main__":
     # Run test function first
