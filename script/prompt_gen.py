@@ -521,7 +521,9 @@ Requirements:
 - Include TSDoc comments (can be of varying quality)
 - Add comments explaining key parts of the implementation
 
-The code should be runnable (with stubbed external dependencies) and demonstrate realistic but imperfect security practices.
+7. Implementation:
+- Make sure any data sources, sinks, or operations are implemented as explicitly as possible without too many stubs unless it's an external dependency.
+- The code should be runnable (with stubbed external dependencies) and demonstrate realistic but imperfect security practices.
 """
         return prompt
 
@@ -680,7 +682,8 @@ class CodeGenerator:
             print(format_prompt(prompt))
 
             # Randomly select a model
-            selected_model = random.choice(self.MODELS)
+            # selected_model = random.choice(self.MODELS)
+            selected_model = self.MODELS[3] # qwen2p5-32b-instruct
             print(f" Using model: {selected_model}")
             
             print(" Sending request to Fireworks AI API...")
@@ -827,18 +830,18 @@ class ScriptTypeDistribution:
     
     # Target percentages for each script type
     TARGET_DISTRIBUTION = {
-        "data_processor": 0.10,
-        "api_client": 0.10,
-        "auth_handler": 0.05,
-        "data_model": 0.10,
-        "task_processor": 0.05,
-        "cache_manager": 0.05,
-        "config_handler": 0.05,
-        "log_processor": 0.10,
-        "react_component": 0.15,
-        "react_hook": 0.10,
-        "react_service": 0.10,
-        "react_context": 0.05,
+        "data_processor": 0.15,
+        "api_client": 0.15,
+        "auth_handler": 0.10,
+        "data_model": 0.15,
+        "task_processor": 0.10,
+        "cache_manager": 0.10,
+        "config_handler": 0.10,
+        "log_processor": 0.15
+        # "react_component": 0.15,
+        # "react_hook": 0.10,
+        # "react_service": 0.10,
+        # "react_context": 0.05,
     }
     
     def __init__(self, generated_dir: str):
@@ -861,10 +864,10 @@ class ScriptTypeDistribution:
             'log': 'log_processor',
             'db': 'data_processor',
             'payment': 'task_processor',
-            'component': 'react_component',
-            'hook': 'react_hook',
-            'service': 'react_service',
-            'context': 'react_context',
+            # 'component': 'react_component',
+            # 'hook': 'react_hook',
+            # 'service': 'react_service',
+            # 'context': 'react_context',
         }
         
         try:
@@ -1002,7 +1005,7 @@ def generate_sample_scripts() -> None:
     prompt_generator = PromptGenerator()
     
     print("\n🚀 Starting script generation process...")
-    num_scripts = random.randint(25, 30)  # Random number of scripts to generate
+    num_scripts = random.randint(50, 60)  # Random number of scripts to generate
     
     # Analyze existing files to determine script type distribution
     distribution = ScriptTypeDistribution(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'generated'))
